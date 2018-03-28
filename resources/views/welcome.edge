@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Hello Adonis</title>
+  {{ css('style') }}
+</head>
+<body>
+  <section>
+    <div class="logo"></div>
+    <div class="title"></div>
+    <div class="subtitle"><p>AdonisJs simplicity will make you feel confident about your code</p></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.js"></script>
+    <script src="https://unpkg.com/@adonisjs/websocket-client"></script>
+    <script>
+      const conn = adonis.Ws().connect()
+      conn.on('open', () => {
+        const chat = conn.subscribe('chat')
+        chat.on('error', console.log)
+      })
+    </script>
+  </section>
+</body>
+</html>
